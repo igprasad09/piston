@@ -1,8 +1,11 @@
-# Use the official Piston image
+# Use official Piston API image
 FROM ghcr.io/engineer-man/piston:latest
 
-# Expose port for Render
+# Expose the port Render will use
 EXPOSE 8080
 
-# Default command to run API
-CMD ["./api"]
+# Use Render's PORT env
+ENV PORT 8080
+
+# Start the API
+CMD ["piston-api"]
